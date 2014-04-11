@@ -9,7 +9,9 @@ html, body {
 #canvasContainer {
   border: none;
   cursor: pointer;
-  width: 480px;
-  height: 640px;
+  /* width: 480px; */
+  /* height: 640px; */
+  width: 1000px;
+  height: 1000px;
   background-color: #EEEEEE;
 }
