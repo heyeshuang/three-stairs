@@ -25,9 +25,7 @@ light.position.set( 100, 100, 200 )
 scene.add(light)
 
 drawFloor=(orientation,startPos,numOfStairs=25,isUp=true)->
-  # startPos=(x,y,z)
-  endPos=
-    x:0,y:0,z:0
+  # endPos=new THREE.Vector3(0,0,0)
   for i in [0...numOfStairs]
     if orientation is "+x" or orientation is "-x"
       cube = new THREE.Mesh(
@@ -39,8 +37,7 @@ drawFloor=(orientation,startPos,numOfStairs=25,isUp=true)->
         new THREE.CubeGeometry(stairDef.l,stairDef.w,stairDef.h),
         new THREE.MeshLambertMaterial(color: 0xff0000)
       )
-    scene.add(cube)
-    cube.position.set(startPos.x,startPos.y,startPos.z)
+    cube.position.copy(startPos)
     switch orientation
       when "+x"
         cube.position.x=startPos.x+stairDef.w*i
@@ -54,20 +51,29 @@ drawFloor=(orientation,startPos,numOfStairs=25,isUp=true)->
       cube.position.z=startPos.z+stairDef.h*i
     else
       cube.position.z=startPos.z-stairDef.h*i
+    scene.add(cube)
     # cube.position.set(-stairDef.w*i,0,stairDef.h*i)
   renderer.clear()
   renderer.render(scene, camera)
-  endPos=
-    x:cube.position.x
-    y:cube.position.y
-    z:cube.position.z
+  cube.position
+
+stackOfPos=[
+  new THREE.Vector3(0,0,0)
+]
 
 animate=->
   requestAnimationFrame(animate)
-  camera.position.x-=0.6
-  camera.position.z+=0.4
-  camera.lookAt.x-=0.6
-  camera.lookAt.z+=0.4
+  # camera.position.x-=0.6
+  # camera.position.z+=0.4
+  # camera.lookAt.x-=0.6
+  # camera.lookAt.z+=0.4
+  # TODO:wrap them in a new function
+  while stackOfPos.length < 3
+    newPos=drawFloor("-x",stackOfPos[-1..][0])
+    stackOfPos.push(newPos)
+  startPos=stackOfPos.shift()
+  endPos=stackOfPos[0]
   renderer.render(scene, camera)
 
 # animate()
+# TODO:spotlight & camera.setlens
