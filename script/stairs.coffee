@@ -94,7 +94,7 @@ animate=->
       state="up"
       # console.log(startPos)
       # console.log(endPos)
-      # console.log(stepV)
+      console.log(stepV)
 
   renderer.render(scene, camera)
   # while stackOfPos.length < 3

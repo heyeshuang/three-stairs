@@ -133,8 +133,11 @@ animate = function() {
       endPos = stackOfPos.shift();
       stepV = endPos.clone().add(observer).sub(camera.position).multiplyScalar(stepLength);
       state = "up";
+      console.log(stepV);
   }
   return renderer.render(scene, camera);
 };
 
 animate();
+
+//# sourceMappingURL=stairs.map
