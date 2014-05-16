@@ -1,0 +1,17 @@
+body {
+  background: #000000
+}
+
+html, body {
+  margin: 0; padding: 0;
+  height: 100%; width: 100%;
+}
+#canvasContainer {
+  border: none;
+  cursor: pointer;
+  /* width: 480px; */
+  /* height: 640px; */
+  width: 1366px;
+  height: 600px;
+  background-color: #EEEEEE;
+}
