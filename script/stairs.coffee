@@ -37,7 +37,7 @@ camera.up.z = 1
 # camera.lookAt( x:-200, y:200, z:200  )
 scene = new THREE.Scene()
 scene.fog=new THREE.FogExp2(0x000000)
-window.addEventListener( 'resize', onWindowResize, false )
+# window.addEventListener( 'resize', onWindowResize, false )
 #
 # 光源设置
 # light = new THREE.PointLight(0xFFFFFF, 1.0, 0)
