@@ -118,5 +118,5 @@ animate()
   # renderer.setSize( window.innerWidth, window.innerHeight )
   # controls.handleResize()
 
-# TODO:spotlight & camera.setlens
-# TODO:shake camera
+# TODO:camera.setlens
+# TODO:shake camera,using THREE.PathControls
