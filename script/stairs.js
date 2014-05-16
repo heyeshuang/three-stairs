@@ -51,8 +51,6 @@ scene = new THREE.Scene();
 
 scene.fog = new THREE.FogExp2(0x000000);
 
-window.addEventListener('resize', onWindowResize, false);
-
 drawFloor = function(orientation, startPos, numOfStairs, isUp) {
   var cube, i, l1, sphere, spotLight, _i;
   if (numOfStairs == null) {
